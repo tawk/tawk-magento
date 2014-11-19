@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+/**
+ * Tawk.to
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@tawk.to so we can send you a copy immediately.
+ *
+ * @copyright   Copyright (c) 2014 Tawk.to
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+
+<config>
+	<modules>
+		<Tawk_Widget>
+			<version>1.0.0</version>
+		</Tawk_Widget>
+	</modules>
+
+	<global>
+		<blocks>
+			<tawkwidget>
+				<class>Tawk_Widget_Block</class>
+			</tawkwidget>
+		</blocks>
+		<helpers>
+			<tawkwidget>
+				<class>Tawk_Widget_Helper</class>
+			</tawkwidget>
+		</helpers>
+		<models>
+			<tawkwidget>
+				<class>Tawk_Widget_Model</class>
+				<resourceModel>tawkwidget_resource</resourceModel>
+			</tawkwidget>
+			<tawkwidget_resource>
+				<class>Tawk_Widget_Model_Resource</class>
+				<entities>
+					<widget>
+						<table>tawk_widget</table>
+					</widget>
+				</entities>
+			</tawkwidget_resource>
+		</models>
+
+		<resources>
+			<tawkwidget_setup>
+				<setup>
+					<module>Tawk_Widget</module>
+					<class>Tawk_Widget_Model_Resource_Setup</class>
+				</setup>
+			</tawkwidget_setup>
+		</resources>
+	</global>
+
+	<frontend>
+        <layout>
+            <updates>
+                <tawkwidget_embed>
+                    <file>tawkwidget.xml</file>
+                </tawkwidget_embed>
+            </updates>
+        </layout>
+     </frontend>
+
+	 <admin>
+	   <routers>
+			<Tawk_Widget>
+				<use>admin</use>
+				<args>
+					<module>Tawk_Widget</module>
+					<frontName>tawkwidget</frontName>
+				</args>
+			</Tawk_Widget>
+	   </routers>
+	</admin>
+
+</config>

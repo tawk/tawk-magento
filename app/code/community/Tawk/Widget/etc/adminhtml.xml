@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+/**
+ * Tawk.to
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@tawk.to so we can send you a copy immediately.
+ *
+ * @copyright   Copyright (c) 2014 Tawk.to
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+
+<config>
+	<menu>
+		<widget translate="title" module="tawkwidget">
+			<title>Tawk.to widget</title>
+			<sort_order>1000</sort_order>
+			<children>
+				<customization translate="title" module="tawkwidget">
+					<title>Choose widget</title>
+					<action>tawkwidget/admin/customization</action>
+				</customization>
+				<gotodashboard translate="title" module="tawkwidget">
+					<title>Go to dashboard</title>
+					<action>tawkwidget/admin/redirect</action>
+				</gotodashboard>
+			</children>
+		</widget>
+	</menu>
+
+	<acl>
+	  <resources>
+		<admin>
+		  <children>
+			<widget translate="title" module="widget">
+				<title>Tawk.to widget</title>
+				<sort_order>1000</sort_order>
+				<children>
+					<customize translate="title" module="livechat">
+						<title>Customize</title>
+						<action>tawkwidget/admin/customization</action>
+						<sort_order>10</sort_order>
+					</customize>
+				</children>
+				<children>
+					<customize translate="title" module="livechat">
+						<title>Dashboard</title>
+						<action>tawkwidget/admin/redirect</action>
+						<sort_order>20</sort_order>
+					</customize>
+				</children>
+			</widget>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+</config>
