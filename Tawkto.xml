@@ -1,0 +1,104 @@
+<_>
+   <form_key>i5EhQVYD5TTaU6m4</form_key>
+   <name>TawkTo</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+   </version_ids>
+   <summary>tawk.to is a live chat application designed to increase the effectiveness in managing the online customer engagement experience, enabling multiple websites and agents in a single dashboard interface.</summary>
+   <description>Compatible with all modern browsers, tawk.to is free live chat software created out of the growing need for businesses to respond in real time, with real people.
+Tawk.to launched a beta version in Q4 2013 and mobile apps for Android and iOS are currently in development (for release in early 2014).
+This agent-centric live chat software has been developed to meet the technical, functional, analytical, and UI requirements of the actual end user.</description>
+   <license>OSL v3.0</license>
+   <license_uri/>
+   <version>1.0.0</version>
+   <stability>alpha</stability>
+   <notes>Initial relase
+
+*Allows to choose which widget you want to use</notes>
+   <authors>
+      <name>
+         <name>tawk</name>
+      </name>
+      <user>
+         <user>tawk</user>
+      </user>
+      <email>
+         <email>support@tawk.to</email>
+      </email>
+   </authors>
+   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_max>6.0.0</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+         </name>
+         <channel>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+         <files>
+            <files>                    </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>Core</name>
+         </name>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>magecommunity</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>mageetc</target>
+         <target>magedesign</target>
+      </target>
+      <path>
+         <path/>
+         <path>Tawk</path>
+         <path>adminhtml/default/default/template/tawk/customization.phtml</path>
+         <path>frontend/default/default/layout/tawkwidget.xml</path>
+         <path>modules/Tawk_Widget.xml</path>
+         <path>frontend/default/default/template/tawk/embed.phtml</path>
+      </path>
+      <type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>file</type>
+         <type>file</type>
+         <type>file</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+      </ignore>
+   </contents>
+</_>
