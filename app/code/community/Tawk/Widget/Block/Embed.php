@@ -39,7 +39,7 @@ class Tawk_Widget_Block_Embed extends Mage_Core_Block_Template {
 		$websiteId = $store->getWebsite()->getId();
 
 		//order in which we select widget
-		$ids = [$websiteId.'_'.$groupId.'_'.$storeId, $websiteId.'_'.$groupId, $websiteId, 'global'];
+		$ids = array($websiteId.'_'.$groupId.'_'.$storeId, $websiteId.'_'.$groupId, $websiteId, 'global');
 
 		foreach ($ids as $id) {
 			$model = Mage::getModel('tawkwidget/widget')->loadByForStoreId($id);
