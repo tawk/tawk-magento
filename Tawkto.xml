@@ -1,5 +1,5 @@
 <_>
-   <form_key>i5EhQVYD5TTaU6m4</form_key>
+   <form_key>6tE5GGLJqnCwUULG</form_key>
    <name>TawkTo</name>
    <channel>community</channel>
    <version_ids>
@@ -11,11 +11,9 @@ Tawk.to launched a beta version in Q4 2013 and mobile apps for Android and iOS a
 This agent-centric live chat software has been developed to meet the technical, functional, analytical, and UI requirements of the actual end user.</description>
    <license>OSL v3.0</license>
    <license_uri/>
-   <version>1.0.0</version>
+   <version>1.0.1</version>
    <stability>alpha</stability>
-   <notes>Initial relase
-
-*Allows to choose which widget you want to use</notes>
+   <notes>Fix array issue with php &lt;= 5.3</notes>
    <authors>
       <name>
          <name>tawk</name>
@@ -44,7 +42,7 @@ This agent-centric live chat software has been developed to meet the technical, 
             <max/>
          </max>
          <files>
-            <files>                    </files>
+            <files>                       </files>
          </files>
       </package>
       <extension>
@@ -67,6 +65,8 @@ This agent-centric live chat software has been developed to meet the technical, 
          <target>magedesign</target>
          <target>mageetc</target>
          <target>magedesign</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
       </target>
       <path>
          <path/>
@@ -74,7 +74,9 @@ This agent-centric live chat software has been developed to meet the technical, 
          <path>adminhtml/default/default/template/tawk/customization.phtml</path>
          <path>frontend/default/default/layout/tawkwidget.xml</path>
          <path>modules/Tawk_Widget.xml</path>
-         <path>frontend/default/default/template/tawk/embed.phtml</path>
+         <path>frontend/default/default/template/tawk/</path>
+         <path>frontend/base/default/template/tawk/</path>
+         <path>frontend/base/default/layout/tawkwidget.xml</path>
       </path>
       <type>
          <type>file</type>
@@ -82,6 +84,8 @@ This agent-centric live chat software has been developed to meet the technical, 
          <type>file</type>
          <type>file</type>
          <type>file</type>
+         <type>dir</type>
+         <type>dir</type>
          <type>file</type>
       </type>
       <include>
@@ -91,8 +95,12 @@ This agent-centric live chat software has been developed to meet the technical, 
          <include/>
          <include/>
          <include/>
+         <include/>
+         <include/>
       </include>
       <ignore>
+         <ignore/>
+         <ignore/>
          <ignore/>
          <ignore/>
          <ignore/>
