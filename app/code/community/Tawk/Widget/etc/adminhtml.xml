@@ -52,7 +52,7 @@
 					</customize>
 				</children>
 				<children>
-					<customize translate="title" module="livechat">
+					<customize translate="title" module="tawkwidget">
 						<title>Dashboard</title>
 						<action>tawkwidget/admin/redirect</action>
 						<sort_order>20</sort_order>
