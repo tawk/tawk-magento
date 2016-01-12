@@ -45,7 +45,7 @@
 				<title>Tawk.to widget</title>
 				<sort_order>1000</sort_order>
 				<children>
-					<customize translate="title" module="livechat">
+					<customize translate="title" module="tawkwidget">
 						<title>Customize</title>
 						<action>tawkwidget/admin/customization</action>
 						<sort_order>10</sort_order>
