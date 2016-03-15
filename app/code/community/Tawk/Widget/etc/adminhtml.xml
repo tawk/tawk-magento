@@ -38,29 +38,27 @@
 	</menu>
 
 	<acl>
-	  <resources>
-		<admin>
-		  <children>
-			<widget translate="title" module="widget">
-				<title>Tawk.to widget</title>
-				<sort_order>1000</sort_order>
+		<resources>
+			<admin>
 				<children>
-					<customize translate="title" module="livechat">
-						<title>Customize</title>
-						<action>tawkwidget/admin/customization</action>
-						<sort_order>10</sort_order>
-					</customize>
+					<widget translate="title" module="tawkwidget">
+						<title>Tawk.to widget</title>
+						<sort_order>1000</sort_order>
+						<children>
+							<customization translate="title" module="tawkwidget">
+								<title>Customize</title>
+								<action>tawkwidget/admin/customization</action>
+								<sort_order>10</sort_order>
+							</customization>
+							<gotodashboard translate="title" module="tawkwidget">
+								<title>Dashboard</title>
+								<action>tawkwidget/admin/redirect</action>
+								<sort_order>20</sort_order>
+							</gotodashboard>
+						</children>
+					</widget>
 				</children>
-				<children>
-					<customize translate="title" module="livechat">
-						<title>Dashboard</title>
-						<action>tawkwidget/admin/redirect</action>
-						<sort_order>20</sort_order>
-					</customize>
-				</children>
-			</widget>
-		  </children>
-		</admin>
-	  </resources>
+			</admin>
+		</resources>
 	</acl>
 </config>

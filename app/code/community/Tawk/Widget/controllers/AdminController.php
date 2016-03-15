@@ -22,6 +22,11 @@ class Tawk_Widget_AdminController extends Mage_Adminhtml_Controller_Action {
 		echo "1";
 	}
 
+	protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('widget');
+    }
+
 	public function customizationAction() {
 		$this->loadLayout();
 		$block = $this->getLayout()->createBlock('tawkwidget/admin_customization');
