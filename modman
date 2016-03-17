@@ -1,0 +1,10 @@
+app/etc/modules/*                                app/etc/modules/
+app/code/community/Tawk/*                        app/code/community/Tawk/
+
+app/design/adminhtml/default/default/template/*  app/design/adminhtml/default/default/template/
+app/design/frontend/base/default/layout/*        app/design/frontend/base/default/layout/
+app/design/frontend/base/default/template/*      app/design/frontend/base/default/template/
+app/design/frontend/default/default/layout/*     app/design/frontend/default/default/layout/
+app/design/frontend/default/default/template/*   app/design/frontend/default/default/template/
+
+Tawkto.xml                                       var/connect/
