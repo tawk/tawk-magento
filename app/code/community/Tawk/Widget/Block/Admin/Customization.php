@@ -19,7 +19,7 @@
 
 class Tawk_Widget_Block_Admin_Customization extends Mage_Adminhtml_Block_Template {
 	const BASE_URL = 'https://plugins.tawk.to';
-
+ 
 	private $model;
 	private $widgets;
 
@@ -36,12 +36,39 @@ class Tawk_Widget_Block_Admin_Customization extends Mage_Adminhtml_Block_Templat
 		$this->setFormAction(Mage::getUrl('*/*/savewidget'));
 	}
 
+	function mainurl(){
+	    if(isset($_SERVER['HTTPS'])){
+	        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+	    }
+	    else{
+	        $protocol = 'http';
+	    }
+	    return $protocol . "://" . $_SERVER['HTTP_HOST'];
+	}
+
 	public function getIframeUrl() {
+
+		/*
 		return $this->getBaseUrl()
 			.'/generic/widgets'
-			.'?parentDomain='.Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB)
+			.'?parentDomain='.Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB);
+			/*
 			.'&selectType=singleIdSelect'
 			.'&selectText=Store';
+			*/
+		return $this->getBaseUrl().'/generic/widgets'
+				.'?currentWidgetId='.$widget_id
+				.'&currentPageId='.$page_id
+				.'&transparentBackground=1'
+				.'&parentDomain='.$this->mainurl();
+				#.'&parentDomain='.Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB);
+	}
+
+	public function getWebSiteoptions(){
+		$websites = Mage::app()->getWebsites();
+		foreach ($websites as $website) {
+			echo '<option value="'.$website->getId().'">'.$website->getName().'</option>';
+		}
 	}
 
 	public function getHierarchy() {
@@ -49,24 +76,30 @@ class Tawk_Widget_Block_Admin_Customization extends Mage_Adminhtml_Block_Templat
 
 		$h = array();
 
+
 		$h[] = array(
 			'id'      => 'global',
 			'name'    => 'Global',
 			'childs'  => array(),
+			'current' => array(),
 			'current' => $this->getCurrentValuesFor('global')
 		);
-
+		
+		
 		foreach ($websites as $website) {
 			$parsed = array();
 
 			$parsed['id']      = $website->getId();
 			$parsed['name']    = $website->getName();
+			$parsed['childs']  = array();
+			$parsed['current'] = array();
+
 			$parsed['childs']  = $this->parseGroups($website->getGroups());
 			$parsed['current'] = $this->getCurrentValuesFor($website->getId());
 
 			$h[] = $parsed;
 		}
-
+		
 		return $h;
 	}
 
@@ -124,5 +157,9 @@ class Tawk_Widget_Block_Admin_Customization extends Mage_Adminhtml_Block_Templat
 
 	public function getRemoveUrl() {
 		return Mage::helper('adminhtml')->getUrl('tawkwidget/admin/removewidget');
+	}
+
+	public function getstorewidgetUrl(){
+		return Mage::helper('adminhtml')->getUrl('tawkwidget/admin/getstorewidget');	
 	}
 }

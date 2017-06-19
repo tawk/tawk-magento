@@ -20,7 +20,7 @@
 class Tawk_Widget_AdminController extends Mage_Adminhtml_Controller_Action {
 	public function indexAction() {
 		echo "1";
-	}
+	} 
 
 	protected function _isAllowed()
     {
@@ -43,7 +43,7 @@ class Tawk_Widget_AdminController extends Mage_Adminhtml_Controller_Action {
 
 		$response->setHeader('Content-type', 'application/json');
 
-		if(!is_string($_POST['pageId']) || !is_string($_POST['widgetId']) || !is_string($_POST['id'])) {
+		if(!is_string($_POST['pageId']) || !is_string($_POST['widgetId']) ) {
 			return $response->setBody(json_encode(array("success" => FALSE)));
 		}
 
@@ -53,9 +53,19 @@ class Tawk_Widget_AdminController extends Mage_Adminhtml_Controller_Action {
 			$model = Mage::getModel('tawkwidget/widget');
 		}
 
-		$model->setPageId($_POST['pageId']);
-		$model->setWidgetId($_POST['widgetId']);
+		if( ($_POST['pageId'] == '-1') && ($_POST['widgetId'] == '-1') ){
+
+		}else{
+			$model->setPageId($_POST['pageId']);
+			$model->setWidgetId($_POST['widgetId']);
+		}
 		$model->setForStoreId($_POST['id']);
+		
+		$model->setAlwaysDisplay($_POST['alwaysdisplay']);
+		$model->setExcludeUrl($_POST['excludeurl']);
+
+		$model->setDoNotDisplay($_POST['donotdisplay']);
+		$model->setIncludeUrl($_POST['includeurl']);
 
 		$model->save();
 
@@ -69,5 +79,40 @@ class Tawk_Widget_AdminController extends Mage_Adminhtml_Controller_Action {
 		Mage::getModel('tawkwidget/widget')->loadByForStoreId($_GET['id'])->delete();
 
 		return $response->setBody(json_encode(array("success" => TRUE)));
+	}
+
+	public function getstorewidgetAction() {
+		$response = $this->getResponse();
+		$response->setHeader('Content-type', 'application/json');
+
+		$model = Mage::getModel('tawkwidget/widget')->loadByForStoreId($_GET['id']);
+		$widget_id = $model->getWidgetId();
+		$page_id = $model->getPageId();
+
+		$excludeurl = $model->getExcludeUrl();
+		$includeurl = $model->getIncludeUrl();
+		
+		$alwaysdisplay = $model->getAlwaysDisplay();
+		$donotdisplay = $model->getDoNotDisplay();
+
+		 if(isset($_SERVER['HTTPS'])){
+	        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+	    }
+	    else{
+	        $protocol = 'http';
+	    }
+	    $domain = $protocol . "://" . $_SERVER['HTTP_HOST'];
+
+	    $sitedata = array(
+	    	"pageid" => $page_id,
+	    	'widgetid' => $widget_id,
+	    	'domain' => $domain,
+	    	'excludeurl' => $excludeurl,
+	    	'includeurl' => $includeurl,
+	    	'alwaysdisplay' => $alwaysdisplay,
+	    	'donotdisplay' => $donotdisplay
+	    );
+
+		return $response->setBody( json_encode( $sitedata ) );
 	}
 }

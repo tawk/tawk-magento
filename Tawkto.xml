@@ -11,7 +11,7 @@ Tawk.to launched a beta version in Q4 2013 and mobile apps for Android and iOS a
 This agent-centric live chat software has been developed to meet the technical, functional, analytical, and UI requirements of the actual end user.</description>
    <license>OSL v3.0</license>
    <license_uri/>
-   <version>1.0.1</version>
+   <version>1.0.2</version>
    <stability>alpha</stability>
    <notes>Fix array issue with php &lt;= 5.3</notes>
    <authors>
